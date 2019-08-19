@@ -28,6 +28,7 @@ const installingDependancies = (name) => {
         npm install bcrypt
         npm install pg-hstore
         npm install dotenv
+        npm install mongoose
         echo Install dev dependancies, please wait...
         npm install -D @babel/cli 
         npm install -D @babel/core 

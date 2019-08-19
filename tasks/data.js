@@ -411,6 +411,33 @@ sequelize
 export default sequelize;
 `;
 
+const mongooseSetupData = `
+    import mongoose from 'mongoose';
+    const sequelize = mongoose.connect('mongodb://localhost:27017/test',
+            {useNewUrlParser: true});
+    sequelize.then(() =>{
+            console.log('MongoDB Connection has been established successfully.')
+        })
+        .catch( err => {
+            console.error('Unable to connect to the database:', err);
+        });
+    
+    export default sequelize;
+`;
+
+const MongooseUserModelData = `
+import mongoose from 'mongoose';
+
+const userSchema = new mongoose.Schema({
+    firstName: { type: String },
+    lastName: { type: String },
+    email: { type: String },
+    password: { type: String }
+});
+
+export default mongoose.model("User", userSchema);
+`;
+
 const userModelData =
     `import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
